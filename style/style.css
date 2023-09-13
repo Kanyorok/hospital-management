@@ -4,3 +4,13 @@
     background-repeat: no-repeat;
     height: 100vh;
 }
+
+h6 {
+    color: red;
+    font-weight: 700;
+    font-size: large;
+    background-color: aqua;
+    padding: 10px;
+    border-radius: 12px;
+    text-align: center;
+}
