@@ -5,7 +5,7 @@
     height: 100vh;
 }
 
-h6 {
+.alert_info {
     color: red;
     font-weight: 700;
     font-size: large;

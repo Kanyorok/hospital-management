@@ -17,7 +17,14 @@
     <nav class="navbar navbar-expand-lg navbar-info bg-info d-flex justify-content-between align-middle px-4">
         <h5 class="text-white">Hospital Management System</h5>
         <ul class="navbar-nav">
-            <li class="nav-item">
+        <?php echo isset($_SESSION['admin']) ?
+            ' <li class="nav-item">
+                <a href="#" class="nav-link text-white">'.$_SESSION['admin'].'</a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link text-white">Logout</a>
+              </li>'
+        : ' <li class="nav-item">
                 <a href="adminlogin.php" class="nav-link text-white">Admin</a>
             </li>
             <li class="nav-item">
@@ -25,7 +32,8 @@
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link text-white">Patient</a>
-            </li>
+            </li>'; 
+        ?>
         </ul>
     </nav>
         

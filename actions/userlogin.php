@@ -1,9 +1,11 @@
-<?php include('../includes/dbconn.php'); ?>
 <?php 
+    session_start();
+
+    include('../includes/dbconn.php');
 
     if(isset($_POST['login'])){
         $username = $_POST['uname'];
-        $password = $_POST['password'];
+        $password = $_POST['pass'];
 
         $error = array();
 
@@ -18,14 +20,15 @@
 
         if(count($error) == 0) {
             
-            $query = "SELECT * FROM admin WHERE username='$username' AND password='password'";
+            $query = "SELECT * FROM admin WHERE username='$username' AND password='$password'";
 
             $result = mysqli_query($connect, $query);
 
             if(mysqli_num_rows($result) == 1) {
                 echo "<script>alert('You are logged in as an admin!')</script>";
                 $_SESSION['admin'] = $username;
-                // header('location:adminlogin.php?login_message=You have logged in as admin!');
+                header('location:../admin/index.php');
+                exit();
             }else{
                 header('location:../adminlogin.php?login_message=Invalid Username or Password!');
             }

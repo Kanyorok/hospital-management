@@ -17,14 +17,14 @@
                             <input type="text" name="uname" class="form-control" autocomplete="off" placeholder="Enter Username">
                         </div>
                         <div class="form-group p-3">
-                            <input type="password" name="password" class="form-control" placeholder="Enter Password">
+                            <input type="password" name="pass" class="form-control" placeholder="Enter Password">
                             <input type="submit" class="btn btn-success mt-3" name="login" value="LOGIN">
                         </div>
                     </form>
                     <br/>
                     <?php
                         if(isset($_GET['login_message'])){
-                            echo "<h6>".$_GET['login_message']."</h6>";
+                            echo "<h6 class='alert_info'>".$_GET['login_message']."</h6>";
                         }
                     ?>
                 </div>

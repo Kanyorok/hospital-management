@@ -1,6 +1,6 @@
 <?php 
 
-define("HOSTNAME", "localhost");
+    define("HOSTNAME", "localhost");
     define("USERNAME", "root");
     define("PASSWORD", "");
     define("DATABASE", "hospital_management");
