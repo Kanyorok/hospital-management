@@ -22,7 +22,7 @@
                 <a href="#" class="nav-link text-white">'.$_SESSION['admin'].'</a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link text-white">Logout</a>
+                <a href="../actions/userlogout.php" class="nav-link text-white">Logout</a>
               </li>'
         : ' <li class="nav-item">
                 <a href="adminlogin.php" class="nav-link text-white">Admin</a>
