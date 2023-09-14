@@ -30,7 +30,7 @@
                 header('location:../admin/index.php');
                 exit();
             }else{
-                header('location:../adminlogin.php?login_message=Invalid Username or Password!');
+                header('location:../logininterface/adminlogin.php?login_message=Invalid Username or Password!');
             }
 
         }
