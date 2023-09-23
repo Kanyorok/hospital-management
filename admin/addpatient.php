@@ -32,7 +32,7 @@
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-6">
-                                <h5 class="text-center">All Hospital Adminstrators</h5>
+                                <h5 class="text-center">All Admitted Patients</h5>
                                 <table class="table table-bordered">
                                     <th>ID</th>
                                     <th>Username</th>
@@ -57,7 +57,7 @@
                                 <?php echo $output; ?>
                             </div>
                             <div class="col-md-6">
-                                <h5 class="text-center">Add Hospital Adminstrator</h5>
+                                <h5 class="text-center">Add Patient</h5>
                                 <table class="table table-bordered">
                                     <thead>
                                         <th>Username</th>

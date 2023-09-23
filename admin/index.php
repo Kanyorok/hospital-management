@@ -55,7 +55,7 @@
                                             <h5 class="text-white">Patients</h5>
                                         </div>
                                         <div class="col-md-4">
-                                            <a href="#"><i class="fa fa-procedures fa-3x my-4 admin-cog"></i></a>
+                                            <a href="addpatient.php"><i class="fa fa-procedures fa-3x my-4 admin-cog"></i></a>
                                         </div>
                                     </div>
                                 </div>
