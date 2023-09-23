@@ -24,6 +24,7 @@
             $query = "INSERT INTO admin (username, password, profile) VALUES ('$username', '$password', '$image')";
 
             $result = mysqli_query($connect, $query);
+            header('location:../admin/addadmin.php?register_message='.$error['admin'].'');
         }
     }
 

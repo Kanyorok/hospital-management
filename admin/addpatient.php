@@ -59,23 +59,32 @@
                             <div class="col-md-6">
                                 <h5 class="text-center">Add Patient</h5>
                                 <table class="table table-bordered">
-                                    <thead>
-                                        <th>Username</th>
-                                        <th>Password</th>
-                                        <th>Profile</th>
+                                    <thead class="text-center">
+                                        <th colspan="3">Patient Data Capture</th>
                                     </thead>
                                     <tbody>
                                         <form action="../actions/add_admin.php" method="post" enctype="multipart/form-data">
                                             <div class="form-group">
                                                 <tr>
                                                   <td>
-                                                    <input type="text" name="uname" class="form-control" autocomplete="off" placeholder="Enter Username">
+                                                    <input type="text" name="fname" class="form-control" autocomplete="off" placeholder="Enter Patient Name">
                                                   </td>
                                                   <td>
-                                                    <input type="password" name="pass" class="form-control" autocomplete="off" placeholder="Enter Password">
+                                                    <input type="text" name="ill" class="form-control" autocomplete="off" placeholder="Enter Past Condition">
                                                   </td>
                                                   <td>
-                                                    <input type="file" name="img" class="form-control" autocomplete="off" placeholder="Enter Password">
+                                                    <input type="text" name="blood" class="form-control" autocomplete="off" placeholder="Enter Blood Type">
+                                                  </td>
+                                                </tr>
+                                                <tr>
+                                                  <td>
+                                                    <input type="text" name="contact" class="form-control" autocomplete="off" placeholder="Enter Patient Name">
+                                                  </td>
+                                                  <td>
+                                                    <input type="text" name="donor" class="form-control" autocomplete="off" placeholder="Past Condition">
+                                                  </td>
+                                                  <td>
+                                                    <input type="text" name="age" class="form-control" autocomplete="off" placeholder="Enter Patient Age">
                                                   </td>
                                                 </tr>
                                                 <tr>
