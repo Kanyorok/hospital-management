@@ -11,16 +11,9 @@
                 </div>
                 <div class="col-md-4 mx-1 mt-1 py-3 shadow text-center">
                     <img src="assets/images/patient.jpg" alt="patient image" class="img-fluid">
-                    <h5 class="my-2">Out and Inpatient Treatment</h5>
-                    <a href="#">
-                        <button class="btn btn-success my-3">Create An Account</button>
-                    </a>
-                </div>
-                <div class="col-md-4 mx-1 mt-1 py-3 shadow text-center">
-                    <img src="assets/images/doctorbg.jpg" alt="doctor image" class="img-fluid">
-                    <h5 class="my-2">Doctors Needed</h5>
-                    <a href="#">
-                        <button class="btn btn-success my-3">Apply Now!!!</button>
+                    <h5 class="my-2">Patient Data Management</h5>
+                    <a href="./logininterface/adminlogin.php">
+                        <button class="btn btn-success my-3">Admin Patient Data Management</button>
                     </a>
                 </div>
             </div>

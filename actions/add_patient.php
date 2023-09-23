@@ -35,9 +35,10 @@ if(isset($_POST['add_patient'])){
         $bloodType = mysqli_real_escape_string($connect, $bloodType);
         $contact = mysqli_real_escape_string($connect, $contact);
         $prescription = mysqli_real_escape_string($connect, $prescription);
+        $condition = mysqli_real_escape_string($connect, $condition);
         
         // Insert the data into the database
-        $query = "INSERT INTO patients (Full_Name, Blood_type, Contact, Prescription, Age, Appointment) VALUES ('$fullName', '$bloodType', '$contact', '$prescription', '$age', '$appointment')";
+        $query = "INSERT INTO patients (Full_Name, Blood_type, Contact, Prescription, Age, Appointment, HCondition) VALUES ('$fullName', '$bloodType', '$contact', '$prescription', '$age', '$appointment', '$condition')";
         $result = mysqli_query($connect, $query);
         
         if($result) {

@@ -127,6 +127,17 @@
                                                         }
 
                                                     ?>
+                                                    <?php
+
+                                                        if(isset($_GET['update_message'])){
+                                                            echo "
+                                                            <td colspan='3' class=text-center>
+                                                                <h6 class='alert alert-success' role='alert'>".$_GET['update_message']."</h6>
+                                                            </td>
+                                                            ";
+                                                        }
+
+                                                    ?>
                                                 </tr>
                                             </div>
                                         </form>
