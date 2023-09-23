@@ -92,7 +92,7 @@ Install this project with:
 - install xampp or alternative local host or server.
 - start server (important Apache and Mysql).
 - visit phpmyadmin page http://localhost/phpmyadmin/.
-- import the database hospital_management.sql
+- import the database hospital_management.sql from the database directory.
 - launch app in browser by navigating http://localhost/hospital-management/index.php
 
 ### Usage
