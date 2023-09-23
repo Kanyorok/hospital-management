@@ -78,18 +78,23 @@
                                                 </tr>
                                                 <tr>
                                                   <td>
-                                                    <input type="text" name="contact" class="form-control" autocomplete="off" placeholder="Enter Patient Name">
+                                                    <input type="text" name="appointment" class="form-control" autocomplete="off" placeholder="Enter Appointment Date">
                                                   </td>
                                                   <td>
-                                                    <input type="text" name="donor" class="form-control" autocomplete="off" placeholder="Past Condition">
+                                                    <input type="text" name="contact" class="form-control" autocomplete="off" placeholder="Enter Patient Contact">
                                                   </td>
                                                   <td>
                                                     <input type="text" name="age" class="form-control" autocomplete="off" placeholder="Enter Patient Age">
                                                   </td>
                                                 </tr>
                                                 <tr>
+                                                    <td colspan="3" rows="4">
+                                                        <textarea name="prescribe" cols="75" placeholder="Give Prescription"></textarea>
+                                                    </td>
+                                                </tr>
+                                                <tr>
                                                     <td colspan="3" class="text-center">
-                                                        <input type="submit" class="btn btn-success" name="add_admin" value="ADD NEW ADMIN">
+                                                        <input type="submit" class="btn btn-success"  name="add_admin" value="ADD NEW PATIENT">
                                                     </td>
                                                 </tr>
                                                 <tr>
