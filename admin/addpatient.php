@@ -49,6 +49,9 @@
                                         <td><?php echo $data[$index]['Appointment']?></td>
                                         <td><?php echo $data[$index]['Prescription']?></td>
                                         <td>
+                                            <a href="updatepatient.php?id=<?php echo $data[$index]['id']?>" class="btn btn-success">Update</a>
+                                                <br />
+                                                <br />
                                             <a href="../actions/delete.php?id=<?php echo $data[$index]['id']?>">
                                                 <button class="btn btn-danger">
                                                         Remove
@@ -107,11 +110,22 @@
                                                         if(isset($_GET['register_message'])){
                                                             echo "
                                                             <td colspan='3' class=text-center>
-                                                                <h6 class='alert alert-danger' role='alert'>".$_GET['register_message']."</h6>
+                                                                <h6 class='alert alert-success' role='alert'>".$_GET['register_message']."</h6>
                                                             </td>
                                                             ";
                                                         }
                                                     
+                                                    ?>
+                                                     <?php
+
+                                                        if(isset($_GET['delete_message'])){
+                                                            echo "
+                                                            <td colspan='3' class=text-center>
+                                                                <h6 class='alert alert-danger' role='alert'>".$_GET['delete_message']."</h6>
+                                                            </td>
+                                                            ";
+                                                        }
+
                                                     ?>
                                                 </tr>
                                             </div>
