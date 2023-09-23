@@ -30,7 +30,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 CodeFront Developer Management <a name="about-project"></a>
+# 📖 Damu Sasa Patient Management <a name="about-project"></a>
 
 A simple application that shows the patient data management in terms of Add, Update, Delete, and Read data at Damu Sasa company. The default login data in database is username: Admin, Password: Admin. Add the user once database is succesfully imported on Xampp.
 
