@@ -11,6 +11,36 @@
     font-size: large;
     background-color: aqua;
     padding: 10px;
-    border-radius: 12px;
+    border-radius: 15px;
     text-align: center;
+}
+
+.side-bar {
+    margin-left: -30px;
+    border-radius: 20px;
+}
+
+.menu-elements {
+    height: 100vh;
+}
+
+.main-content {
+    height: 130px;
+    border-radius: 9px;
+}
+
+.first-admin-card {
+    font-size: 30px;
+}
+
+.test_var {
+    border-radius: 20px;
+}
+
+.admin-cog {
+    color: #fff;
+}
+
+.action-th {
+    width: 5%;
 }
