@@ -16,7 +16,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-info bg-info d-flex justify-content-between align-middle px-4">
-        <h5 class="text-white">Hospital Management System</h5>
+        <h5 class="text-white">Damu Sasa Patient Management System</h5>
         <ul class="navbar-nav">
         <?php echo isset($_SESSION['admin']) ?
             ' <li class="nav-item">
