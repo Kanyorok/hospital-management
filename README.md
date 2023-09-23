@@ -88,7 +88,7 @@ Install this project with:
 
 - Open your command prompt or terminal and run.
 - git clone https://github.com/Kanyorok/hospital-management.git
-- cd CodeFrontUsers
+- cd hospital-management
 - install xampp or alternative local host or server.
 - start server (important Apache and Mysql).
 - visit phpmyadmin page http://localhost/phpmyadmin/.
