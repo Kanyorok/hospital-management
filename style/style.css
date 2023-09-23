@@ -45,3 +45,12 @@
     width: 5%;
 }
 
+.apimessage {
+    color: red;
+    font-weight: 700;
+    font-size: large;
+    background-color: aqua;
+    padding: 10px;
+    border-radius: 12px;
+    text-align: center;
+}

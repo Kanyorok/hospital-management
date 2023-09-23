@@ -93,6 +93,7 @@ Install this project with:
 - start server (important Apache and Mysql).
 - visit phpmyadmin page http://localhost/phpmyadmin/.
 - import the database hospital_management.sql from the database directory.
+- Click on patient option in the sidebar
 - launch app in browser by navigating http://localhost/hospital-management/index.php
 
 ### Usage
