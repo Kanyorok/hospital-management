@@ -50,7 +50,12 @@
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-8">
-                                            <h5 class="my-2 text-white first-admin-card">0</h5>
+                                        <?php 
+                                                $query = "SELECT * FROM patients";
+                                                $result = mysqli_query($connect, $query);
+                                                $display_data = mysqli_num_rows($result);
+                                            ?>
+                                            <h5 class="my-2 text-white first-admin-card"><?php echo $display_data; ?></h5>
                                             <h5 class="text-white">Total</h5>
                                             <h5 class="text-white">Patients</h5>
                                         </div>

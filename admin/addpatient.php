@@ -1,6 +1,6 @@
 <?php session_start(); $pageTitle = 'Add/Remove Admin'; include("../includes/header.php"); include("../includes/dbconn.php"); 
     $currentAdmin = $_SESSION['admin'];
-    $query = "SELECT * FROM admin WHERE username !='$currentAdmin'";
+    $query = "SELECT * FROM patients";
     $result = mysqli_query($connect, $query);
     $output = "";
 
@@ -15,7 +15,7 @@
     }
 
     if (mysqli_num_rows($result) < 1) {
-        $output = "<h5 class='text-center'>No New Admin</h5>";
+        $output = "<h5 class='text-center'>No Patients in Database</h5>";
     } 
 
     
@@ -32,10 +32,12 @@
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-6">
-                                <h5 class="text-center">All Admitted Patients</h5>
+                                <h5 class="text-center">All Patients</h5>
                                 <table class="table table-bordered">
-                                    <th>ID</th>
-                                    <th>Username</th>
+                                    <th>Patient ID</th>
+                                    <th>Patient Name</th>
+                                    <th>Appointment Date</th>
+                                    <th>Prescription</th>
                                     <th class="action-th">Action</th>
                                     <?php
                                         $index = 0;
@@ -43,7 +45,9 @@
                                     ?>
                                     <tr>
                                         <td><?php echo $index + 1; ?></td>
-                                        <td><?php echo $data[$index]['username']?></td>
+                                        <td><?php echo $data[$index]['Full_Name']?></td>
+                                        <td><?php echo $data[$index]['Appointment']?></td>
+                                        <td><?php echo $data[$index]['Prescription']?></td>
                                         <td>
                                             <a href="../actions/delete.php?id=<?php echo $data[$index]['id']?>">
                                                 <button class="btn btn-danger">
@@ -63,14 +67,14 @@
                                         <th colspan="3">Patient Data Capture</th>
                                     </thead>
                                     <tbody>
-                                        <form action="../actions/add_admin.php" method="post" enctype="multipart/form-data">
+                                        <form action="../actions/add_patient.php" method="post">
                                             <div class="form-group">
                                                 <tr>
                                                   <td>
                                                     <input type="text" name="fname" class="form-control" autocomplete="off" placeholder="Enter Patient Name">
                                                   </td>
                                                   <td>
-                                                    <input type="text" name="ill" class="form-control" autocomplete="off" placeholder="Enter Past Condition">
+                                                    <input type="text" name="ill" class="form-control" autocomplete="off" placeholder="Pre-exiting Health Condition">
                                                   </td>
                                                   <td>
                                                     <input type="text" name="blood" class="form-control" autocomplete="off" placeholder="Enter Blood Type">
@@ -78,23 +82,23 @@
                                                 </tr>
                                                 <tr>
                                                   <td>
-                                                    <input type="text" name="appointment" class="form-control" autocomplete="off" placeholder="Enter Appointment Date">
+                                                    <input type="date" name="appointment" class="form-control" autocomplete="off" placeholder="Enter Appointment Date">
                                                   </td>
                                                   <td>
-                                                    <input type="text" name="contact" class="form-control" autocomplete="off" placeholder="Enter Patient Contact">
+                                                    <input type="text" name="contact" class="form-control" autocomplete="off" placeholder="Enter Patient Contact (Phone/Email)">
                                                   </td>
                                                   <td>
                                                     <input type="text" name="age" class="form-control" autocomplete="off" placeholder="Enter Patient Age">
                                                   </td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="3" rows="4">
-                                                        <textarea name="prescribe" cols="75" placeholder="Give Prescription"></textarea>
+                                                    <td colspan="3">
+                                                        <textarea name="prescribe" cols="75" rows="4" placeholder="Give Prescription"></textarea>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td colspan="3" class="text-center">
-                                                        <input type="submit" class="btn btn-success"  name="add_admin" value="ADD NEW PATIENT">
+                                                        <input type="submit" class="btn btn-success"  name="add_patient" value="ADD NEW PATIENT">
                                                     </td>
                                                 </tr>
                                                 <tr>
