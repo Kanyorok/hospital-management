@@ -1,4 +1,4 @@
-<?php include('../includes/dbconn.php') ?>
+<?php require_once('../includes/dbconn.php') ?>
 
 <?php 
 
@@ -9,12 +9,13 @@
 
         $query = "delete from `patients` where `id`= '$id'";
 
-        $result = mysqli_query($connect, $query);
+        $result = $connect -> prepare($query);
+        $result->execute();
 
-        if(!$result){
-            die("Query Failed".mysqli_error());
-        } else {
+        if($result->execute()){
             header('location:../admin/addpatient.php?delete_message=Deleted Data Successfully!');
+        } else {
+            die("Query Failed".mysqli_error());
         }
 
 

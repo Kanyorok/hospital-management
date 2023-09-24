@@ -1,32 +1,49 @@
 <?php
 
-    include('../includes/dbconn.php');
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    require_once('../includes/dbconn.php');
 
     $error = array();
 
-    if(isset($_POST['add_admin'])){
+    if (isset($_POST['add_admin'])) {
         $username = $_POST['uname'];
         $password = $_POST['pass'];
         $image = $_FILES['img']['name'];
 
-        if (empty($username)){
+        if (empty($username)) {
             $error['admin'] = 'Enter Username';
-            header('location:../admin/addadmin.php?register_message='.$error['admin'].'');
-        } else if(empty($password)) {
+        } else if (empty($password)) {
             $error['admin'] = 'Enter Password';
-            header('location:../admin/addadmin.php?register_message='.$error['admin'].'');
-        } else if(empty($image)){
+        } else if (empty($image)) {
             $error['admin'] = 'Upload Profile Image';
-            header('location:../admin/addadmin.php?register_message='.$error['admin'].'');
         }
 
-        if(count($error) == 0) {
-            $query = "INSERT INTO admin (username, password, profile) VALUES ('$username', '$password', '$image')";
+        if (count($error) == 0) {
+            // Upload the image to a directory (e.g., 'uploads/')
+            $upload_dir = '../assets/profiles/';
+            $target_file = $upload_dir . basename($image);
 
-            $result = mysqli_query($connect, $query);
-            header('location:../admin/addadmin.php?register_message='.$error['admin'].'');
+            if (move_uploaded_file($_FILES['img']['tmp_name'], $target_file)) {
+                $query = "INSERT INTO admin (username, password, profile) VALUES (:username, :password, :profile)";
+                $result = $connect->prepare($query);
+                $result->bindParam(":username", $username);
+                $result->bindParam(":password", $password);
+                $result->bindParam(":profile", $target_file); // Store the file path in the database
+
+                if ($result->execute()) {
+                    
+                    header('location: ../admin/addadmin.php?register_message=Admin added successfully');
+                } else {
+                    $error['admin'] = 'Failed to add admin';
+                }
+            } else {
+                $error['admin'] = 'Failed to upload image';
+            }
         }
+
+        // Success, redirect to a success page or back to the admin page
+        header('location: ../admin/addadmin.php?register_message=Admin added successfully');
     }
-
-
-?>
+} else {
+    header('location: ../admin/addadmin.php');
+}

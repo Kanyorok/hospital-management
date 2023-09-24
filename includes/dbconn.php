@@ -1,12 +1,12 @@
 <?php 
 
-    define("HOSTNAME", "localhost");
-    define("USERNAME", "root");
-    define("PASSWORD", "");
-    define("DATABASE", "hospital_management");
+    $dsn = "mysql:host=localhost;dbname=hospital_management";
+    $dbusername = "root";
+    $dbpassword = "";
 
-    $connect = mysqli_connect(HOSTNAME, USERNAME, PASSWORD, DATABASE);
-
-    if(!$connect){
-        die("Connection Failed");
+    try {
+        $connect = new PDO($dsn, $dbusername, $dbpassword);
+        $connect -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+        echo "Connection failed: ".$e -> getMessage();
     }
