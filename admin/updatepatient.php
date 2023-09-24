@@ -6,14 +6,13 @@
 
         $query = "SELECT * FROM `patients` where `id`='$id'";
 
-        $result = mysqli_query($connect, $query);
+        $result = $connect->prepare($query);
+        $result -> execute();
 
-        if(!$result){
-            die("Query Failed".mysqli_error());
+        if($result -> execute()){
+            $row = $result->fetch(PDO::FETCH_ASSOC);
         } else {
-
-            $row = mysqli_fetch_assoc($result);
-
+            die("Query Failed");
         }
     }
 ?>
@@ -43,12 +42,13 @@
             `Contact` ='$contact',
             `Appointment` = '$appointment' where `id` = '$id_new'";
 
-        $result = mysqli_query($connect, $query);
+        $result = $connect -> prepare($query);
+        $result -> execute();
 
-        if(!$result){
-            die("Query Failed".mysqli_error());
-        } else {
+        if($result -> execute()){
             header('location:addpatient.php?update_message=Updated Patient Data Successfully!');
+        } else {
+            die("Query Failed");
         }
 
     }

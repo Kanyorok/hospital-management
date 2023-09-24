@@ -1,23 +1,24 @@
-<?php session_start(); $pageTitle = 'Add/Remove Admin'; include("../includes/header.php"); include("../includes/dbconn.php"); 
-    $currentAdmin = $_SESSION['admin'];
-    $query = "SELECT * FROM patients";
-    $result = mysqli_query($connect, $query);
-    $output = "";
+<?php session_start();
+$pageTitle = 'Add/Remove Admin';
+include("../includes/header.php");
+require_once("../includes/dbconn.php");
 
-    if(!$result){
-        die("Query failed!".mysqli_error());
-    } else{
-        $data = array();
+$currentAdmin = $_SESSION['admin'];
+$query = "SELECT * FROM patients";
+$result = $connect->prepare($query);
+$result->execute();
+$finalOutcome = $result->fetchAll(PDO::FETCH_ASSOC);
+$output = "";
 
-        while($row = mysqli_fetch_assoc($result)){
-            $data[] = $row;
-        }
-    }
+if (!$result) {
+    die("Query failed!" . print_r($connect->errorInfo(), true));
+}
 
-    if (mysqli_num_rows($result) < 1) {
-        $output = "<h5 class='text-center'>No Patients in Database</h5>";
-    } 
-
+if (count($finalOutcome) < 1) {
+    $output = "<h5 class='text-center'>No New Patients</h5>";
+} else {
+    $data = $finalOutcome;
+}
     
 ?>
     <div class="container-fluid">
@@ -72,6 +73,7 @@
                                     <tbody>
                                         <form action="../actions/add_patient.php" method="post">
                                             <div class="form-group">
+                                                <input type="hidden" name="source_form" value="form2">
                                                 <tr>
                                                   <td>
                                                     <input type="text" name="fname" class="form-control" autocomplete="off" placeholder="Enter Patient Name">
