@@ -11,6 +11,7 @@ $result->bindParam(':currentAdmin', $currentAdmin);
 $result->execute();
 $finalOutcome = $result->fetchAll(PDO::FETCH_ASSOC);
 $output = "";
+$data = [];
 
 if (!$result) {
     die("Query failed!" . print_r($connect->errorInfo(), true));
@@ -46,7 +47,7 @@ if (count($finalOutcome) < 1) {
                                         <td><?php echo $index + 1; ?></td>
                                         <td><?php echo $data[$index]['username'] ?></td>
                                         <td>
-                                            <a href="../actions/delete.php?id=<?php echo $data[$index]['id'] ?>">
+                                            <a href="../actions/delete_admin.php?id=<?php echo $data[$index]['id'] ?>">
                                                 <button class="btn btn-danger">Remove</button>
                                             </a>
                                         </td>
@@ -95,6 +96,15 @@ if (count($finalOutcome) < 1) {
                                                         <h6 class='alert alert-danger' role='alert'>" . $_GET['register_message'] . "</h6>
                                                     </td>";
                                             }
+                                            ?>
+                                            <?php
+                                                if(isset($_GET['delete_message'])){
+                                                    echo "
+                                                    <td colspan='3' class=text-center>
+                                                        <h6 class='alert alert-danger' role='alert'>".$_GET['delete_message']."</h6>
+                                                    </td>
+                                                    ";
+                                                }
                                             ?>
                                         </tr>
                                     </div>

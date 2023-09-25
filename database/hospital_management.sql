@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 23, 2023 at 01:01 PM
+-- Generation Time: Sep 25, 2023 at 04:55 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -39,13 +39,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `profile`) VALUES
-(1, 'robert', 'admin', 'admin.jpg'),
-(2, 'Martin', 'Martin', 'martin.jpg'),
-(3, 'Kevin', 'Kevin', 'kevin.jpg'),
-(4, 'Ngugi', 'ngugi', 'vet_clinic.png'),
-(5, 'James', 'james', 'vet_clinic.png'),
-(6, 'Kim', 'kim', 'vet_clinic.png'),
-(7, 'Admin', 'Admin', 'devops.jpg');
+(1, 'Admin', '$2y$10$j7GSXRdZK5PdUCAQz5zLs.EzN27MPYQHgrN35IfCIjzF.P9K7ALja', '../assets/profiles/progress.png');
 
 -- --------------------------------------------------------
 
@@ -78,13 +72,6 @@ CREATE TABLE `patients` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `patients`
---
-
-INSERT INTO `patients` (`id`, `Full_Name`, `Blood_type`, `Contact`, `Prescription`, `age`, `Appointment`, `HCondition`) VALUES
-(4, 'Collins Njuguna', 'O-', '0987', 'Do not take asprins', 23, '2023-09-13', 'Cancer');
-
---
 -- Indexes for dumped tables
 --
 
@@ -114,7 +101,7 @@ ALTER TABLE `patients`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `medical_histories`
@@ -126,7 +113,7 @@ ALTER TABLE `medical_histories`
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

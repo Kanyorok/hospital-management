@@ -1,39 +1,43 @@
 <?php 
-    session_start();
+session_start();
+include('../includes/dbconn.php');
 
-    include('../includes/dbconn.php');
+if (isset($_POST['login'])) {
+    $username = $_POST['uname'];
+    $password = $_POST['pass'];
 
-    if(isset($_POST['login'])){
-        $username = $_POST['uname'];
-        $password = $_POST['pass'];
+    $error = array();
 
-        $error = array();
+    if (empty($username)) {
+        $error['user'] = "Enter Username";
+        header('location:../userlogin.php?user_message=' . $error['user']);
+    } else if (empty($password)) {
+        $error['user'] = "Enter Password";
+        header('location:../userlogin.php?user_message=' . $error['user']);
+    }
 
-        if (empty($username)) {
-            $error['admin'] = "Enter Username";
-            header('location:../adminlogin.php?user_message= ' . $error['admin'].'');
-        } else if (empty($password)) {
-            $error['admin'] = "Enter Password";
-            header('location:../adminlogin.php?user_message= ' . $error['admin'].'');
-        }
-        
+    if (count($error) == 0) {
+        $query = "SELECT password FROM admin WHERE username = :username";
+        $result = $connect->prepare($query);
+        $result->bindParam(":username", $username);
+        $result->execute();
 
-        if(count($error) == 0) {
-            
-            $query = "SELECT * FROM admin WHERE username='$username' AND password='$password'";
+        if ($result->rowCount() == 1) {
+            $row = $result->fetch(PDO::FETCH_ASSOC);
+            $hashed_password = $row['password'];
 
-            $result = mysqli_query($connect, $query);
-
-            if(mysqli_num_rows($result) == 1) {
-                echo "<script>alert('You are logged in as an admin!')</script>";
+            // Use password_verify to check if the provided password matches the stored hash
+            if (password_verify($password, $hashed_password)) {
+                echo "<script>alert('You are logged in as a user!')</script>";
                 $_SESSION['admin'] = $username;
                 header('location:../admin/index.php');
                 exit();
-            }else{
+            } else {
                 header('location:../logininterface/adminlogin.php?login_message=Invalid Username or Password!');
             }
-
+        } else {
+            header('location:../logininterface/adminlogin.php?login_message=User Does not exist');
         }
     }
-
+}
 ?>

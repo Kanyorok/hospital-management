@@ -24,14 +24,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $target_file = $upload_dir . basename($image);
 
             if (move_uploaded_file($_FILES['img']['tmp_name'], $target_file)) {
+                // Hash the password
+                $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
                 $query = "INSERT INTO admin (username, password, profile) VALUES (:username, :password, :profile)";
                 $result = $connect->prepare($query);
                 $result->bindParam(":username", $username);
-                $result->bindParam(":password", $password);
+                $result->bindParam(":password", $hashed_password); // Store the hashed password
                 $result->bindParam(":profile", $target_file); // Store the file path in the database
 
                 if ($result->execute()) {
-                    
                     header('location: ../admin/addadmin.php?register_message=Admin added successfully');
                 } else {
                     $error['admin'] = 'Failed to add admin';
@@ -47,3 +49,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     header('location: ../admin/addadmin.php');
 }
+?>

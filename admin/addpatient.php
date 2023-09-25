@@ -1,4 +1,5 @@
-<?php session_start();
+<?php
+session_start();
 $pageTitle = 'Add/Remove Admin';
 include("../includes/header.php");
 require_once("../includes/dbconn.php");
@@ -13,6 +14,8 @@ $output = "";
 if (!$result) {
     die("Query failed!" . print_r($connect->errorInfo(), true));
 }
+
+$data = []; 
 
 if (count($finalOutcome) < 1) {
     $output = "<h5 class='text-center'>No New Patients</h5>";

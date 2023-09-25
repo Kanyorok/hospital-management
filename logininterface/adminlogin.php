@@ -22,6 +22,7 @@
                         </div>
                     </form>
                     <br/>
+                    <br/>
                     <?php
                         if(isset($_GET['login_message'])){
                             echo "<h6 class='alert alert-danger' role='alert'>".$_GET['login_message']."</h6>";
