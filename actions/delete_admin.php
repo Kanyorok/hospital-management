@@ -15,7 +15,7 @@
         if($result->execute()){
             header('location:../admin/addadmin.php?delete_message=Deleted Data Successfully!');
         } else {
-            die("Query Failed".mysqli_error());
+            die("Query Failed");
         }
 
 
